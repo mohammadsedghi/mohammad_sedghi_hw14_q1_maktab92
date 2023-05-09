@@ -57,7 +57,7 @@ while [ true ]; do
          if grep -Fxq "$message" taskList.txt
          then
                echo $message >> removedTask.txt
-            sed -i  "/$message/d" taskList.txt
+
          else
             echo "not found!!!"
          fi
