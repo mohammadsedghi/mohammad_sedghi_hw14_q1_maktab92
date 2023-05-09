@@ -52,6 +52,8 @@ while [ true ]; do
    cat removedTask.txt
     ;;
   7)
+    ;;
+  8)
     exit
     ;;
   esac
