@@ -56,7 +56,7 @@ while [ true ]; do
          read message
          if grep -Fxq "$message" taskList.txt
          then
-               echo $message >> removedTask.txt
+               echo
 
          else
             echo "not found!!!"
