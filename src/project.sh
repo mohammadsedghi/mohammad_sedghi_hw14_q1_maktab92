@@ -3,7 +3,7 @@ addTask=""
 numberMenu=0
 touch completedTask.txt
 touch removedTask.txt
-while [ true ]; do
+while true ; do
   echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
   echo "select menu item:"
   echo "1-add Task                     2-show remaining task   3-move completed task from taskList file  4-show completedTask"
