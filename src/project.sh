@@ -10,14 +10,20 @@ while [ true ]; do
   echo "5-remove Task from taskList    6-show removedTask      7-search                                  8- remove from completedTask.txt"
   echo "9-exit"
  echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
-
+ if [ -f removedTask.txt ]; then
+   touch removedTask.txt
+   fi
+   if [ -f completedTask.txt ]; then
+      touch completedTask.txt
+      fi
   read numberMenu
   case $numberMenu in
   1)
     echo "please enter your task"
     read addTask
     if [ -f taskList.txt ]; then
-      echo "$addTask" >>taskList.txt
+
+      echo "$addTask""  "$(date +"%d-%m-%Y") >>taskList.txt
     else
       touch taskList.txt
       echo "$addTask" >>taskList.txt
