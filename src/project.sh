@@ -4,18 +4,23 @@ numberMenu=0
 touch completedTask.txt
 touch removedTask.txt
 while [ true ]; do
-  echo "select menu item: 1-add Task             2-show remaining task    3-move completed task from taskList file  4-show completedTask"
-  echo "                  5-remove Task          6-show removedTask       7-search                                  8- exit"
+  echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
+  echo "select menu item:"
+  echo "1-add Task                     2-show remaining task   3-move completed task from taskList file  4-show completedTask"
+  echo "5-remove Task from taskList    6-show removedTask      7-search                                  8- remove from completedTask.txt"
+  echo "9-exit"
+ echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
+
   read numberMenu
   case $numberMenu in
   1)
     echo "please enter your task"
     read addTask
     if [ -f taskList.txt ]; then
-      echo "$addTask" >taskList.txt
+      echo "$addTask" >>taskList.txt
     else
       touch taskList.txt
-      echo "$addTask" >taskList.txt
+      echo "$addTask" >>taskList.txt
     fi
     ;;
   2)
@@ -34,7 +39,7 @@ while [ true ]; do
       echo $message >>removedTask.txt
       sed -i "/$message/d" taskList.txt
     else
-      echo "not found!!!"
+      echo "not found!!! in taskList.txt"
     fi
     ;;
   4)
@@ -47,7 +52,7 @@ while [ true ]; do
       echo $message >>removedTask.txt
       sed -i "/$message/d" taskList.txt
     else
-      echo "not found!!!"
+      echo "not found!!! in taskList.txt"
     fi
     ;;
 
@@ -77,6 +82,16 @@ while [ true ]; do
     fi
     ;;
   8)
+     echo "please enter your task"
+        read message
+        if grep -Fxq "$message" completedTask.txt; then
+          echo $message >>removedTask.txt
+          sed -i "/$message/d" completedTask.txt
+        else
+          echo "not found!!! in completedTask.txt"
+        fi
+        ;;
+  9)
     exit
     ;;
   esac
